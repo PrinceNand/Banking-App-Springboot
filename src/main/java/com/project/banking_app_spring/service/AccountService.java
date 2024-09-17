@@ -4,6 +4,8 @@ import com.project.banking_app_spring.dto.AccountDto;
 import com.project.banking_app_spring.entity.Account;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
+
 
 public interface AccountService {
 
@@ -14,4 +16,6 @@ public interface AccountService {
     AccountDto deposit(Long id, double amount);
 
     AccountDto withdraw(Long id, double amount);
+
+    List<AccountDto> getAllAccounts();
 }

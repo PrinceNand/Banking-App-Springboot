@@ -8,6 +8,9 @@ import com.project.banking_app_spring.service.AccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Service
 public class AccountServiceImplementation implements AccountService {
@@ -57,5 +60,11 @@ public class AccountServiceImplementation implements AccountService {
         return AccountMapper.mapToAccountDto(savedAccount);
     }
 
+    @Override
+    public List<AccountDto> getAllAccounts() {
+        List<Account> accounts = accountRepository.findAll();
+        return accounts.stream().map(AccountMapper::mapToAccountDto)
+                .collect(Collectors.toList());
+    }
 
 }
