@@ -8,4 +8,6 @@ import lombok.AllArgsConstructor;
 public interface AccountService {
 
     AccountDto createAccount(AccountDto account);
+
+    AccountDto getAccountById(Long id);
 }
